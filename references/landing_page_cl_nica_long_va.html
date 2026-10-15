@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longèva | Fisioterapia Especializada em Coluna e Joelho — Meireles, Fortaleza</title>
+    <meta name="description" content="Fisioterapia especializada em ortopedia, coluna e joelho no Meireles, Fortaleza. Tratamento de artrose, pós-operatório e musculação terapêutica.">
+    
+    <!-- Google Fonts: Inter as high-precision grotesque standard -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            950: '#0D2E23',
+                            900: '#133C2D',
+                            800: '#194A39',
+                            700: '#235D49',
+                        },
+                        lime: {
+                            500: '#D2E95C',
+                            400: '#DDF56B',
+                            300: '#E9F99C',
+                        },
+                        cream: {
+                            100: '#F3EFE5',
+                            50: '#F8F5ED',
+                        },
+                        lavender: {
+                            200: '#C9C3FC',
+                            100: '#DADAFF',
+                            50: '#F1F0FF',
+                        },
+                        muted: {
+                            dark: '#63736C',
+                            light: '#8EA299',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2px',
+                        'card-lg': '32px',
+                        'card-md': '24px',
+                        'card-sm': '18px',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            background-color: #0D2E23;
+            color: #F3EFE5;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0D2E23;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #194A39;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D2E95C;
+        }
+
+        /* Organic Scribble Effect */
+        .scribble-svg {
+            pointer-events: none;
+        }
+
+        /* Card Hover Animations */
+        .hover-lift {
+            transition: transform 220ms cubic-bezier(.2,.8,.2,1), box-shadow 220ms cubic-bezier(.2,.8,.2,1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+        }
+
+        .accordion-content {
+            transition: max-height 300ms cubic-bezier(.2,.8,.2,1), opacity 250ms ease-in-out;
+        }
+    </style>
+</head>
+<body class="selection:bg-lime-500 selection:text-forest-950">
+
+    <!-- NAVBAR (Capsule Floating Bar) -->
+    <header class="fixed top-4 inset-x-0 z-50 px-4">
+        <nav class="max-w-6xl mx-auto bg-forest-900/90 backdrop-blur-md border border-white/10 rounded-full px-5 py-3 flex items-center justify-between shadow-2xl transition-all">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <span class="text-2xl font-extrabold tracking-tight text-white group-hover:text-lime-500 transition-colors">
+                    longèva<span class="text-lime-500 font-black">.</span>
+                </span>
+                <span class="hidden sm:inline-block text-[10px] uppercase tracking-widest text-muted-light font-semibold border-l border-white/10 pl-2">
+                    Coluna & Joelho
+                </span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-cream-100/80">
+                <a href="#servicos" class="hover:text-lime-500 transition-colors">Serviços</a>
+                <a href="#diferenciais" class="hover:text-lime-500 transition-colors">Método</a>
+                <a href="#como-funciona" class="hover:text-lime-500 transition-colors">Como Funciona</a>
+                <a href="#estrutura" class="hover:text-lime-500 transition-colors">Estrutura</a>
+                <a href="#avaliacoes" class="hover:text-lime-500 transition-colors">Depoimentos</a>
+                <a href="#faq" class="hover:text-lime-500 transition-colors">Dúvidas</a>
+            </div>
+
+            <!-- Header Primary CTA -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/558597716392?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20especializada%20na%20Longèva." 
+                   target="_blank"
+                   rel="noopener"
+                   class="bg-lime-500 hover:bg-lime-400 text-forest-950 text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 flex items-center gap-2 shadow-lg shadow-lime-500/10">
+                    <span>Agendar Avaliação</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-cream-100 p-1 focus:outline-none" aria-label="Abrir Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-2 bg-forest-900 border border-white/10 rounded-2xl p-6 shadow-2xl flex-col gap-4 text-center">
+            <a href="#servicos" class="mobile-nav-link text-cream-100 py-2 hover:text-lime-500 text-base font-medium">Serviços</a>
+            <a href="#diferenciais" class="mobile-nav-link text-cream-100 py-2 hover:text-lime-500 text-base font-medium">Método</a>
+            <a href="#como-funciona" class="mobile-nav-link text-cream-100 py-2 hover:text-lime-500 text-base font-medium">Como Funciona</a>
+            <a href="#estrutura" class="mobile-nav-link text-cream-100 py-2 hover:text-lime-500 text-base font-medium">Estrutura</a>
+            <a href="#avaliacoes" class="mobile-nav-link text-cream-100 py-2 hover:text-lime-500 text-base font-medium">Depoimentos</a>
+            <a href="#faq" class="mobile-nav-link text-cream-100 py-2 hover:text-lime-500 text-base font-medium">Dúvidas Frequentes</a>
+        </div>
+    </header>
+
+    <main class="pt-28 md:pt-36 space-y-16 md:space-y-28">
+
+        <!-- 1. HERO SECTION -->
+        <section class="max-w-6xl mx-auto px-4">
+            <div class="relative bg-lavender-200 text-forest-950 rounded-[32px] md:rounded-[40px] p-6 sm:p-10 lg:p-14 overflow-hidden border border-white/20">
+                
+                <!-- Organic Vector Scribble Background -->
+                <svg class="scribble-svg absolute -right-10 -bottom-10 w-96 md:w-[600px] h-auto opacity-70 z-0" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50,250 C150,50 350,450 450,200 C500,100 300,20 150,150 C50,250 200,480 400,350" stroke="#D2E95C" stroke-width="32" stroke-linecap="round" fill="none"/>
+                </svg>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center relative z-10">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <!-- Eyebrow Pill -->
+                        <div class="inline-flex items-center gap-2 bg-forest-950/10 border border-forest-950/20 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-widest text-forest-950 uppercase">
+                            <span class="w-2 h-2 rounded-full bg-forest-950 animate-pulse"></span>
+                            Fisioterapia Ortopédica no Meireles
+                        </div>
+
+                        <!-- Main Title -->
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-forest-950 leading-[1.05]">
+                            Sua rotina sem dor no joelho e na coluna, com movimento <span class="italic font-normal text-forest-800 underline decoration-lime-500 decoration-4">verdadeiramente livre.</span>
+                        </h1>
+
+                        <!-- Supporting Paragraph -->
+                        <p class="text-base sm:text-lg text-forest-900/80 font-medium max-w-xl leading-relaxed">
+                            Acompanhamos você da dor aguda até a autonomia total. Fisioterapia especializada com mesa de tração, laser de alta precisão e musculação terapêutica.
+                        </p>
+
+                        <!-- CTA Group -->
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+                            <a href="https://wa.me/558597716392?text=Olá!%20Vim%20pelo%20site%20e%20quero%20agendar%20minha%20Avaliação%20Especializada." 
+                               target="_blank"
+                               rel="noopener"
+                               class="bg-forest-950 hover:bg-forest-900 text-lime-500 font-bold px-7 py-4 rounded-full text-center transition-all duration-200 transform hover:-translate-y-0.5 flex items-center justify-center gap-3 shadow-xl">
+                                <span>Agendar Avaliação</span>
+                                <i data-lucide="calendar" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#servicos" 
+                               class="border border-forest-950/40 hover:bg-forest-950/5 text-forest-950 font-semibold px-6 py-4 rounded-full text-center transition-all">
+                                Conhecer tratamentos
+                            </a>
+                        </div>
+
+                        <!-- Social Proof Badge -->
+                        <div class="pt-4 flex items-center gap-4 border-t border-forest-950/10">
+                            <div class="flex -space-x-2 overflow-hidden">
+                                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-lavender-200 object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120" alt="Paciente Longèva">
+                                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-lavender-200 object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120" alt="Paciente Longèva">
+                                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-lavender-200 object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120" alt="Paciente Longèva">
+                            </div>
+                            <div class="text-xs sm:text-sm text-forest-950">
+                                <div class="font-bold flex items-center gap-1">
+                                    <span>5.0</span>
+                                    <div class="flex text-amber-500">
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                    </div>
+                                    <span class="text-forest-900/70 font-normal">(Google Reviews)</span>
+                                </div>
+                                <p class="text-forest-900/70 font-medium">Atendimento individualizado e resolutivo em Fortaleza</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Hero Image Stack -->
+                    <div class="lg:col-span-5 relative flex justify-center lg:justify-end">
+                        <div class="relative w-full max-w-md aspect-[4/5] rounded-[28px] overflow-hidden shadow-2xl border-4 border-white/50">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Fisioterapeuta atendendo paciente com cuidado individualizado na Clínica Longèva" 
+                                 class="w-full h-full object-cover">
+                            
+                            <!-- Floating Floating Stat Tag -->
+                            <div class="absolute bottom-4 left-4 right-4 bg-forest-950/90 backdrop-blur-md border border-white/10 text-cream-100 p-4 rounded-2xl flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs text-muted-light font-medium">Ambiente Exclusivo</p>
+                                    <p class="text-sm font-bold text-lime-500">Hora marcada & individualizado</p>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-lime-500/20 text-lime-500 flex items-center justify-center">
+                                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SERVIÇOS (Grid 4 colunas com cards de serviços) -->
+        <section id="servicos" class="max-w-6xl mx-auto px-4 pt-8">
+            <div class="text-center space-y-3 mb-12">
+                <div class="inline-flex items-center gap-2 border border-lime-500/30 px-3.5 py-1 rounded-full text-xs font-bold tracking-widest text-lime-500 uppercase">
+                    — SERVIÇOS ESPECIALIZADOS
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-cream-100 tracking-tight">
+                    Cuidamos do seu <span class="italic text-lime-500 font-normal">movimento</span> do diagnóstico à manutenção.
+                </h2>
+                <p class="text-muted-light max-w-2xl mx-auto text-sm sm:text-base">
+                    Programas terapêuticos desenhados especificamente para a anatomia e biomecânica da sua articulação.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Service Card 1 -->
+                <div class="bg-forest-900 rounded-card-md overflow-hidden border border-white/10 flex flex-col justify-between hover-lift group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=600" 
+                             alt="Fisioterapia para Artrose de Joelho" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-lime-500 text-forest-950 flex items-center justify-center shadow-lg font-bold">
+                            <i data-lucide="activity" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-cream-100 mb-2">Artrose de Joelho</h3>
+                            <p class="text-sm text-muted-light leading-relaxed">
+                                Protocolo para aliviar o desgaste, reduzir o inchaço e adiar ou evitar procedimentos cirúrgicos invasivos.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/558597716392?text=Olá!%20Gostaria%20de%20informações%20sobre%20tratamento%20para%20Artrose%20de%20Joelho." 
+                           target="_blank"
+                           class="inline-flex items-center justify-between text-sm font-semibold text-lime-500 group-hover:underline pt-2">
+                            <span>Saber mais</span>
+                            <div class="w-8 h-8 rounded-full bg-forest-800 flex items-center justify-center text-lime-500 group-hover:bg-lime-500 group-hover:text-forest-950 transition-colors">
+                                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-forest-900 rounded-card-md overflow-hidden border border-white/10 flex flex-col justify-between hover-lift group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&q=80&w=600" 
+                             alt="Tratamento de Dor na Coluna e Hérnia de Disco" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-lime-500 text-forest-950 flex items-center justify-center shadow-lg font-bold">
+                            <i data-lucide="align-justify" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-cream-100 mb-2">Dor de Coluna & Hérnia</h3>
+                            <p class="text-sm text-muted-light leading-relaxed">
+                                Descompressão com Mesa de Tração e controle de crises agudas de ciática sem dependência contínua de medicamentos.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/558597716392?text=Olá!%20Tenho%20dores%20na%20coluna%20e%20gostaria%20de%20saber%20como%20funciona%20o%20tratamento." 
+                           target="_blank"
+                           class="inline-flex items-center justify-between text-sm font-semibold text-lime-500 group-hover:underline pt-2">
+                            <span>Saber mais</span>
+                            <div class="w-8 h-8 rounded-full bg-forest-800 flex items-center justify-center text-lime-500 group-hover:bg-lime-500 group-hover:text-forest-950 transition-colors">
+                                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-forest-900 rounded-card-md overflow-hidden border border-white/10 flex flex-col justify-between hover-lift group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=600" 
+                             alt="Reabilitação Pós-Operatório de Joelho" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-lime-500 text-forest-950 flex items-center justify-center shadow-lg font-bold">
+                            <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-cream-100 mb-2">Pós-Operatório</h3>
+                            <p class="text-sm text-muted-light leading-relaxed">
+                                Reabilitação acelerada e segura para cirurgias de LCA, Menisco e Prótese Total de Joelho em etapas gradativas.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/558597716392?text=Olá!%20Preciso%20de%20reabilitação%20pós-operatória%20de%20joelho." 
+                           target="_blank"
+                           class="inline-flex items-center justify-between text-sm font-semibold text-lime-500 group-hover:underline pt-2">
+                            <span>Saber mais</span>
+                            <div class="w-8 h-8 rounded-full bg-forest-800 flex items-center justify-center text-lime-500 group-hover:bg-lime-500 group-hover:text-forest-950 transition-colors">
+                                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-forest-900 rounded-card-md overflow-hidden border border-white/10 flex flex-col justify-between hover-lift group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=600" 
+                             alt="Musculação Terapêutica e Pilates Clínico" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-lime-500 text-forest-950 flex items-center justify-center shadow-lg font-bold">
+                            <i data-lucide="dumbbell" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-cream-100 mb-2">Musculação Terapêutica</h3>
+                            <p class="text-sm text-muted-light leading-relaxed">
+                                Academia semipersonalizada orientada por fisioterapeutas para manter seus resultados pós-alta sem lesões.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/558597716392?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Musculação%20Terapêutica%20e%20Pilates." 
+                           target="_blank"
+                           class="inline-flex items-center justify-between text-sm font-semibold text-lime-500 group-hover:underline pt-2">
+                            <span>Saber mais</span>
+                            <div class="w-8 h-8 rounded-full bg-forest-800 flex items-center justify-center text-lime-500 group-hover:bg-lime-500 group-hover:text-forest-950 transition-colors">
+                                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Auxiliar Banner Below Services -->
+            <div class="mt-8 bg-forest-900/60 border border-white/10 rounded-2xl p-6 text-center text-sm text-cream-100">
+                Oferecemos também acompanhamento especial em <strong class="text-lime-500 italic">Pilates Clínico (by FisioClass)</strong> e <strong class="text-lime-500 italic">RPG Postural</strong>. 
+                <a href="https://wa.me/558597716392?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20sobre%20as%20modalidades." class="underline font-bold text-cream-100 hover:text-lime-500 ml-1 inline-flex items-center gap-1">
+                    Falar com Fisioterapeuta <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. MANIFESTO & BRAND STATEMENT -->
+        <section class="max-w-6xl mx-auto px-4">
+            <div class="border-t border-b border-white/10 py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                <div class="md:col-span-3">
+                    <span class="text-xl font-black text-lime-500 tracking-tight">longèva.</span>
+                    <p class="text-xs text-muted-light mt-1 font-medium">Fisioterapia & Saúde Integrada</p>
+                </div>
+                <div class="md:col-span-9 space-y-4">
+                    <p class="text-2xl sm:text-3xl lg:text-4xl font-medium text-cream-100 leading-snug">
+                        Na Longèva, acreditamos que envelhecer ou recuperar-se de uma lesão <span class="text-lime-500 italic">não precisa significar limitações</span>. Combinamos ciência ortopédica, ambiente acolhedor no Meireles e um plano contínuo que vai do alívio imediato da dor à manutenção da sua força vital. ⚡
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MÉTRICAS E PROVA DE ESCALA (Mosaico Assimétrico) -->
+        <section class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Stat Card 1 -->
+                <div class="bg-lavender-200 text-forest-950 p-8 rounded-card-md flex flex-col justify-between min-h-[220px]">
+                    <div class="text-5xl font-extrabold tracking-tight">100%</div>
+                    <div>
+                        <h4 class="font-bold text-lg">Atendimento Individualizado</h4>
+                        <p class="text-sm text-forest-900/80">Sessões dedicadas com fisioterapeutas especialistas, sem rotatividade de estagiários.</p>
+                    </div>
+                </div>
+
+                <!-- Multichannel & Tech Card 2 -->
+                <div class="bg-white text-forest-950 p-8 rounded-card-md flex flex-col justify-between min-h-[220px]">
+                    <div class="flex gap-2 text-forest-950">
+                        <span class="px-3 py-1 bg-forest-950/10 rounded-full text-xs font-bold">Mesa de Tração</span>
+                        <span class="px-3 py-1 bg-forest-950/10 rounded-full text-xs font-bold">Laserterapia</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">Tecnologia Ortopédica</h4>
+                        <p class="text-sm text-muted-dark">Equipamentos modernos para alívio imediato e estímulo da regeneração tecidual.</p>
+                    </div>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div class="bg-lime-500 text-forest-950 p-8 rounded-card-md flex flex-col justify-between min-h-[220px]">
+                    <div class="flex justify-between items-start">
+                        <div class="text-5xl font-extrabold tracking-tight">5.0 ★</div>
+                        <i data-lucide="award" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">Excelência Confirmada</h4>
+                        <p class="text-sm text-forest-950/80">Avaliações 5 estrelas no Google de pacientes do Meireles, Aldeota e região.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. COBERTURA / LOCALIZAÇÃO REGIONAL (Card Horizontal) -->
+        <section class="max-w-6xl mx-auto px-4">
+            <div class="bg-forest-900 border border-white/10 rounded-card-lg p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <span class="text-xs font-bold text-lime-500 uppercase tracking-widest">— LOCALIZAÇÃO PRIVILEGIADA</span>
+                    <h3 class="text-2xl sm:text-3xl font-semibold text-cream-100">
+                        No coração do Meireles, <span class="italic text-lime-500">com total acessibilidade.</span>
+                    </h3>
+                    <p class="text-sm text-muted-light max-w-xl">
+                        Rua Barbosa de Freitas, 585 — Meireles, Fortaleza. Ambiente climatizado, rampa de acesso, café e consultórios privativos.
+                    </p>
+                </div>
+                <a href="https://maps.google.com/?q=Rua+Barbosa+de+Freitas,+585,+Meireles,+Fortaleza" 
+                   target="_blank"
+                   rel="noopener"
+                   class="bg-cream-100 hover:bg-white text-forest-950 font-bold px-6 py-3.5 rounded-full text-sm whitespace-nowrap flex items-center gap-2 transition-all">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-forest-950"></i>
+                    <span>Abrir no Google Maps</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 6. ESTRUTURA FÍSICA E AMBIENTES (Galeria Interativa) -->
+        <section id="estrutura" class="max-w-6xl mx-auto px-4 pt-6">
+            <div class="text-center space-y-3 mb-10">
+                <div class="inline-flex items-center gap-2 border border-lime-500/30 px-3.5 py-1 rounded-full text-xs font-bold tracking-widest text-lime-500 uppercase">
+                    — NOSSA ESTRUTURA
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-semibold text-cream-100">
+                    Projetado para o seu acolhimento e <span class="italic text-lime-500">segurança</span>.
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="relative group rounded-2xl overflow-hidden h-64 border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=600" alt="Consultório Individual Longèva" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-transparent to-transparent p-5 flex items-end">
+                        <div>
+                            <p class="text-xs text-lime-500 font-bold">CONSULTÓRIOS INDIVIDUAIS</p>
+                            <p class="text-sm font-semibold text-cream-100">Privacidade total para sua avaliação</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group rounded-2xl overflow-hidden h-64 border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&q=80&w=600" alt="Mesa de Tração e Descompressão" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-transparent to-transparent p-5 flex items-end">
+                        <div>
+                            <p class="text-xs text-lime-500 font-bold">MESA DE TRAÇÃO</p>
+                            <p class="text-sm font-semibold text-cream-100">Alívio de compressão na coluna</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group rounded-2xl overflow-hidden h-64 border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=600" alt="Área de Musculação Terapêutica" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-transparent to-transparent p-5 flex items-end">
+                        <div>
+                            <p class="text-xs text-lime-500 font-bold">MUSCULAÇÃO TERAPÊUTICA</p>
+                            <p class="text-sm font-semibold text-cream-100">Equipamentos adaptados para reabilitação</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 7. SEÇÃO "COMO FUNCIONA" (Painel Creme com 4 Passos) -->
+        <section id="como-funciona" class="max-w-6xl mx-auto px-4">
+            <div class="bg-cream-100 text-forest-950 rounded-card-lg p-8 sm:p-12 lg:p-16">
+                
+                <div class="text-center space-y-3 mb-12">
+                    <div class="text-xs font-bold tracking-widest text-forest-900/60 uppercase">
+                        — JORNADA DO PACIENTE
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-forest-950">
+                        Quatro passos. Zero <span class="italic font-normal text-forest-800 underline decoration-lime-500">complicação.</span>
+                    </h2>
+                </div>
+
+                <!-- 4 Steps Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                    
+                    <!-- Step 1 -->
+                    <div class="space-y-4 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-forest-950 text-lime-500 font-bold flex items-center justify-center text-lg shadow-md">
+                            01
+                        </div>
+                        <h3 class="text-lg font-bold text-forest-950">Avaliação Detalhada</h3>
+                        <p class="text-sm text-forest-900/70 leading-relaxed">
+                            Análise minuciosa de seus exames de imagem, histórico e exames físicos específicos para joelho ou coluna.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="space-y-4 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-lime-500 text-forest-950 font-bold flex items-center justify-center text-lg shadow-md">
+                            02
+                        </div>
+                        <h3 class="text-lg font-bold text-forest-950">Plano Personalizado</h3>
+                        <p class="text-sm text-forest-900/70 leading-relaxed">
+                            Definição das técnicas específicas (terapia manual, mesa de tração, laser) para alívio rápido da dor.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="space-y-4 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-lavender-200 text-forest-950 font-bold flex items-center justify-center text-lg shadow-md">
+                            03
+                        </div>
+                        <h3 class="text-lg font-bold text-forest-950">Reabilitação Ativa</h3>
+                        <p class="text-sm text-forest-900/70 leading-relaxed">
+                            Evolução gradual da mobilidade e fortalecimento muscular focado com acompanhamento contínuo.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="space-y-4 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-forest-950 text-lime-500 font-bold flex items-center justify-center text-lg shadow-md">
+                            04
+                        </div>
+                        <h3 class="text-lg font-bold text-forest-950">Manutenção & Alta</h3>
+                        <p class="text-sm text-forest-900/70 leading-relaxed">
+                            Transição segura para a Musculação Terapêutica ou Pilates Clínico, prevenindo futuras recidivas.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="mt-12 text-center pt-8 border-t border-forest-950/10">
+                    <a href="https://wa.me/558597716392?text=Olá!%20Quero%20agendar%20meu%20passo%201%20(Avaliação%20Inicial)." 
+                       target="_blank"
+                       class="inline-flex items-center gap-2 bg-forest-950 hover:bg-forest-900 text-lime-500 font-bold px-8 py-4 rounded-full text-sm transition-all shadow-lg">
+                        <span>Iniciar Minha Avaliação Agora</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 8. DEPOIMENTO EM DESTAQUE (Testimonial Card) -->
+        <section id="avaliacoes" class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-forest-900 border border-white/10 rounded-card-lg p-6 sm:p-10">
+                
+                <!-- Testimonial Photo -->
+                <div class="md:col-span-5 relative">
+                    <div class="aspect-square rounded-2xl overflow-hidden border-2 border-white/10">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800" 
+                             alt="Paciente Karina Vieira em depoimento sobre a Clínica Longèva" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <!-- Rating Badge -->
+                    <div class="absolute -bottom-4 left-4 bg-lime-500 text-forest-950 font-bold px-4 py-2 rounded-full text-xs flex items-center gap-1 shadow-lg">
+                        <span>5.0 / 5.0 no Google</span>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                    </div>
+                </div>
+
+                <!-- Quote Content -->
+                <div class="md:col-span-7 space-y-6">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold text-lime-500 uppercase tracking-widest">— DEPOIMENTO EM DESTAQUE</span>
+                        <div class="text-lime-500 opacity-40 font-serif text-6xl leading-none">“</div>
+                    </div>
+
+                    <p class="text-xl sm:text-2xl font-medium text-cream-100 leading-relaxed -mt-6">
+                        Cheguei à Longèva sem conseguir dobrar o joelho após uma lesão grave. O atendimento individualizado dos fisioterapeutas me devolveu a confiança e hoje <span class="italic text-lime-500">voltei a praticar meus exercícios sem dor alguma.</span>
+                    </p>
+
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-cream-100 text-base">Karina Vieira</h4>
+                            <p class="text-xs text-muted-light">Reabilitação de Joelho • Meireles</p>
+                        </div>
+                        <div class="flex text-lime-500">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 9. MODELOS DE ATENDIMENTO / PLANOS DE RECORRÊNCIA -->
+        <section id="diferenciais" class="max-w-6xl mx-auto px-4">
+            <div class="bg-cream-100 text-forest-950 rounded-card-lg p-8 sm:p-12 lg:p-16">
+                
+                <div class="text-center space-y-3 mb-12">
+                    <div class="text-xs font-bold tracking-widest text-forest-900/60 uppercase">
+                        — MODELOS DE ACOMPANHAMENTO
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-semibold text-forest-950">
+                        Transparente e sob medida para a sua <span class="italic font-normal text-forest-800 underline decoration-lime-500">necessidade.</span>
+                    </h2>
+                </div>
+
+                <!-- 3 Options Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Option 1: Reabilitação Específica -->
+                    <div class="bg-white rounded-card-sm p-6 sm:p-8 border border-forest-950/10 flex flex-col justify-between hover-lift">
+                        <div class="space-y-4">
+                            <span class="inline-block px-3 py-1 bg-lavender-200 text-forest-950 text-xs font-bold rounded-full">Fisioterapia Individual</span>
+                            <h3 class="text-2xl font-bold text-forest-950">Tratamento Focado</h3>
+                            <p class="text-sm text-forest-900/70">Ideal para dores agudas, hérnia de disco e reabilitação de cirurgias.</p>
+                            <hr class="border-forest-950/10">
+                            <ul class="space-y-3 text-sm text-forest-950 font-medium">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-forest-950"></i>
+                                    Sessão 100% individual
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-forest-950"></i>
+                                    Mesa de Tração incluída
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-forest-950"></i>
+                                    Eletro e Laserterapia
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/558597716392?text=Gostaria%20de%20consultar%20valores%20para%20Fisioterapia%20Individual." 
+                           target="_blank"
+                           class="mt-8 w-full bg-forest-950 hover:bg-forest-900 text-lime-500 font-bold py-3 rounded-full text-center text-sm transition-all block">
+                            Consultar Valores
+                        </a>
+                    </div>
+
+                    <!-- Option 2: Destaque (Musculação Terapêutica) -->
+                    <div class="bg-forest-950 text-cream-100 rounded-card-sm p-6 sm:p-8 border border-lime-500/30 flex flex-col justify-between hover-lift relative overflow-hidden">
+                        <div class="absolute top-4 right-4 bg-lime-500 text-forest-950 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Mais Recomendado
+                        </div>
+                        <div class="space-y-4">
+                            <span class="inline-block px-3 py-1 bg-lime-500/20 text-lime-500 text-xs font-bold rounded-full">Manutenção & Fortalecimento</span>
+                            <h3 class="text-2xl font-bold text-cream-100">Musculação Terapêutica</h3>
+                            <p class="text-sm text-muted-light">Para idosos e pacientes pós-alta que precisam manter a articulação forte sem riscos.</p>
+                            <hr class="border-white/10">
+                            <ul class="space-y-3 text-sm text-cream-100 font-medium">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-lime-500"></i>
+                                    Orientação de Fisioterapeuta
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-lime-500"></i>
+                                    Grupos reduzidos
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-lime-500"></i>
+                                    Cargas e ângulos protegidos
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/558597716392?text=Gostaria%20de%20saber%20valores%20dos%20planos%20da%20Musculação%20Terapêutica." 
+                           target="_blank"
+                           class="mt-8 w-full bg-lime-500 hover:bg-lime-400 text-forest-950 font-bold py-3 rounded-full text-center text-sm transition-all block">
+                            Conhecer Planos Mensais
+                        </a>
+                    </div>
+
+                    <!-- Option 3: Pilates Clínico -->
+                    <div class="bg-white rounded-card-sm p-6 sm:p-8 border border-forest-950/10 flex flex-col justify-between hover-lift">
+                        <div class="space-y-4">
+                            <span class="inline-block px-3 py-1 bg-lavender-200 text-forest-950 text-xs font-bold rounded-full">by FisioClass</span>
+                            <h3 class="text-2xl font-bold text-forest-950">Pilates Clínico</h3>
+                            <p class="text-sm text-forest-900/70">Foco em postura, flexibilidade e fortalecimento de core e coluna.</p>
+                            <hr class="border-forest-950/10">
+                            <ul class="space-y-3 text-sm text-forest-950 font-medium">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-forest-950"></i>
+                                    Aparelhos completos
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-forest-950"></i>
+                                    Aulas em duplas ou individuais
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-forest-950"></i>
+                                    Execução supervisionada
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/558597716392?text=Quero%20saber%20mais%20sobre%20as%20turmas%20de%20Pilates%20Clínico." 
+                           target="_blank"
+                           class="mt-8 w-full bg-forest-950 hover:bg-forest-900 text-lime-500 font-bold py-3 rounded-full text-center text-sm transition-all block">
+                            Consultar Turmas
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 10. DÚVIDAS FREQUENTES (Accordion) -->
+        <section id="faq" class="max-w-4xl mx-auto px-4">
+            <div class="text-center space-y-3 mb-10">
+                <div class="inline-flex items-center gap-2 border border-lime-500/30 px-3.5 py-1 rounded-full text-xs font-bold tracking-widest text-lime-500 uppercase">
+                    — ESCLARECIMENTO DE DÚVIDAS
+                </div>
+                <h2 class="text-3xl font-semibold text-cream-100">Perguntas Frequentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="bg-forest-900 border border-white/10 rounded-2xl overflow-hidden">
+                    <button class="accordion-header w-full p-6 text-left font-bold text-cream-100 flex items-center justify-between gap-4 focus:outline-none">
+                        <span>A Clínica Longèva atende por planos de saúde / convênios?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-lime-500 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-6 opacity-0 text-sm text-muted-light">
+                        <p class="pb-6">
+                            Nossos atendimentos são exclusivamente particulares para garantir a duração completa da sessão, a individualidade no tratamento e o uso de equipamentos de ponta. Fornecemos nota fiscal com toda a documentação necessária para que você possa solicitar reembolso junto ao seu plano de saúde.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-forest-900 border border-white/10 rounded-2xl overflow-hidden">
+                    <button class="accordion-header w-full p-6 text-left font-bold text-cream-100 flex items-center justify-between gap-4 focus:outline-none">
+                        <span>Preciso de encaminhamento médico para começar?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-lime-500 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-6 opacity-0 text-sm text-muted-light">
+                        <p class="pb-6">
+                            Não é obrigatório. Nossos fisioterapeutas realizam uma avaliação clínica inicial minuciosa. Contudo, se você já possui exames de imagem recentes (Ressonância, Raio-X) ou laudo do seu ortopedista, pedimos que os traga na primeira consulta.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-forest-900 border border-white/10 rounded-2xl overflow-hidden">
+                    <button class="accordion-header w-full p-6 text-left font-bold text-cream-100 flex items-center justify-between gap-4 focus:outline-none">
+                        <span>O que é a Musculação Terapêutica?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-lime-500 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-6 opacity-0 text-sm text-muted-light">
+                        <p class="pb-6">
+                            Trata-se de um serviço contínuo de fortalecimento muscular adaptado para idosos, pessoas com artrose ou quem recebeu alta da fisioterapia. Diferente de uma academia convencional, os exercícios são supervisionados por fisioterapeutas com controle rígido de amplitude e carga.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-forest-900 border border-white/10 rounded-2xl overflow-hidden">
+                    <button class="accordion-header w-full p-6 text-left font-bold text-cream-100 flex items-center justify-between gap-4 focus:outline-none">
+                        <span>Como faço para agendar minha avaliação?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-lime-500 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-6 opacity-0 text-sm text-muted-light">
+                        <p class="pb-6">
+                            O agendamento é feito de forma rápida e direta pelo nosso WhatsApp. Nossa equipe entenderá sua necessidade principal e agendará o horário que melhor se adapta à sua rotina.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 11. CTA FINAL (Card Lavanda de Conversão Maximizada) -->
+        <section class="max-w-6xl mx-auto px-4 pb-12">
+            <div class="bg-lavender-200 text-forest-950 rounded-card-lg p-8 sm:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border border-white/20">
+                
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-forest-950 uppercase">— VAMOS COMEÇAR</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-forest-950 leading-tight">
+                        Volte a realizar suas atividades diárias <span class="italic font-normal underline decoration-lime-500">sem dor.</span>
+                    </h2>
+                    <p class="text-base text-forest-900/80 max-w-lg font-medium">
+                        Sua primeira avaliação com nossos fisioterapeutas especialistas em coluna e joelho está a um clique de distância.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                        <a href="https://wa.me/558597716392?text=Olá!%20Quero%20agendar%20minha%20Avaliação%20na%20Longèva." 
+                           target="_blank"
+                           rel="noopener"
+                           class="bg-forest-950 hover:bg-forest-900 text-lime-500 font-bold px-8 py-4 rounded-full text-center transition-all flex items-center justify-center gap-2 shadow-xl">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            <span>Agendar via WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 bg-forest-950 text-cream-100 p-8 rounded-card-md border border-white/10 space-y-4">
+                    <span class="text-xs font-bold text-lime-500 uppercase tracking-wider">ATENDIMENTO COM HORA MARCADA</span>
+                    <h3 class="text-2xl font-bold">Clínica Longèva</h3>
+                    <p class="text-sm text-muted-light">
+                        R. Barbosa de Freitas, 585 — Meireles, Fortaleza/CE.
+                    </p>
+                    <hr class="border-white/10">
+                    <div class="text-xs text-muted-light space-y-1">
+                        <p>✓ Estacionamento e Acessibilidade</p>
+                        <p>✓ Sala de Espera Climatizada</p>
+                        <p>✓ Equipamentos de Alta Precisão</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER (4 Colunas com Design System Numera) -->
+    <footer class="bg-forest-950 border-t border-white/10 text-cream-100 pt-16 pb-12">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-12 gap-10">
+            
+            <!-- Col 1: Brand -->
+            <div class="md:col-span-4 space-y-4">
+                <span class="text-2xl font-extrabold tracking-tight text-white">
+                    longèva<span class="text-lime-500 font-black">.</span>
+                </span>
+                <p class="text-sm text-muted-light max-w-sm leading-relaxed">
+                    Fisioterapia especializada em Coluna e Joelho. Recuperação e manutenção do seu movimento com acompanhamento de excelência no Meireles.
+                </p>
+                <div class="flex items-center gap-3 pt-2">
+                    <a href="https://instagram.com/clinicalongeva_" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-forest-900 hover:bg-lime-500 hover:text-forest-950 flex items-center justify-center text-cream-100 transition-colors" aria-label="Instagram Longèva">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://wa.me/558597716392" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-forest-900 hover:bg-lime-500 hover:text-forest-950 flex items-center justify-center text-cream-100 transition-colors" aria-label="WhatsApp Longèva">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Col 2: Serviços -->
+            <div class="md:col-span-3 space-y-3">
+                <h4 class="text-sm font-bold text-lime-500 uppercase tracking-wider">Especialidades</h4>
+                <ul class="space-y-2 text-sm text-muted-light">
+                    <li><a href="#servicos" class="hover:text-cream-100 transition-colors">Artrose de Joelho</a></li>
+                    <li><a href="#servicos" class="hover:text-cream-100 transition-colors">Dor de Coluna e Hérnia</a></li>
+                    <li><a href="#servicos" class="hover:text-cream-100 transition-colors">Pós-Operatório de Joelho</a></li>
+                    <li><a href="#servicos" class="hover:text-cream-100 transition-colors">Musculação Terapêutica</a></li>
+                    <li><a href="#servicos" class="hover:text-cream-100 transition-colors">Pilates Clínico (by FisioClass)</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Navegação -->
+            <div class="md:col-span-2 space-y-3">
+                <h4 class="text-sm font-bold text-lime-500 uppercase tracking-wider">Navegação</h4>
+                <ul class="space-y-2 text-sm text-muted-light">
+                    <li><a href="#" class="hover:text-cream-100 transition-colors">Início</a></li>
+                    <li><a href="#como-funciona" class="hover:text-cream-100 transition-colors">Como Funciona</a></li>
+                    <li><a href="#estrutura" class="hover:text-cream-100 transition-colors">Estrutura</a></li>
+                    <li><a href="#avaliacoes" class="hover:text-cream-100 transition-colors">Depoimentos</a></li>
+                    <li><a href="#faq" class="hover:text-cream-100 transition-colors">Dúvidas Frequentes</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Contato -->
+            <div class="md:col-span-3 space-y-3">
+                <h4 class="text-sm font-bold text-lime-500 uppercase tracking-wider">Atendimento</h4>
+                <div class="text-sm text-muted-light space-y-2">
+                    <p class="text-cream-100 font-semibold">Somente com Hora Marcada</p>
+                    <p>Rua Barbosa de Freitas, 585</p>
+                    <p>Meireles, Fortaleza — CE</p>
+                    <p class="text-lime-500 font-medium">WhatsApp: (85) 9771-6392</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Copyright -->
+        <div class="max-w-6xl mx-auto px-4 pt-12 mt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-muted-light gap-4">
+            <p>© 2026 Clínica Longèva — Todos os direitos reservados.</p>
+            <p class="text-muted-light/60">Design adaptado seguindo o Numera Design System.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+
+        // Accordion Behavior
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionContent = header.nextElementSibling;
+                const icon = header.querySelector('i');
+                const isOpen = accordionContent.style.maxHeight && accordionContent.style.maxHeight !== '0px';
+
+                // Close all standard accordions
+                document.querySelectorAll('.accordion-content').forEach(content => {
+                    content.style.maxHeight = '0px';
+                    content.style.opacity = '0';
+                });
+                document.querySelectorAll('.accordion-header i').forEach(ic => {
+                    ic.style.transform = 'rotate(0deg)';
+                });
+
+                // Toggle selected
+                if (!isOpen) {
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+                    accordionContent.style.opacity = '1';
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
